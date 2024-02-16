@@ -34,7 +34,6 @@ selected_proxy = ""
 proxies = []
 server_id = '123'
 status_id = 123
-boost_role_id = 123
 TOKEN = "TOKEN"
 
 
@@ -42,7 +41,7 @@ init()
 
 intents = discord.Intents.all()
 client = commands.Bot(command_prefix="!", intents=intents)
-client.remove_command('help')
+
 
 ################ KLLORE ON TOP ################
 ################ KLLORE ON TOP ################
@@ -170,7 +169,7 @@ async def members(ctx):
 
 @client.command()
 async def invite(ctx):
-    if ctx.guild and ctx.guild.id == server_id:
+    if ctx.guild and ctx.guild.id == 123:
 
         embed_channel = discord.Embed(
             title="CHECK YOUR DM",
@@ -265,31 +264,6 @@ uptime = 0
 ################ KLLORE ON TOP ################
 ################ KLLORE ON TOP ################
 
-
-
-@client.event
-async def on_member_boost(member):
-    boost_channel = member.guild.get_channel(boost_role_id)
-
-    if boost_channel is None:
-        boost_channel = member.guild.system_channel
-
-    avatar_url = member.avatar.url if member.avatar else member.default_avatar.url
-
-    embed = discord.Embed(
-        title=f"Thank you {member.display_name} for your boost!",
-        description=f"Your support is greatly appreciated!",
-        color=discord.Color.gold()
-    )
-    embed.set_thumbnail(url=avatar_url)
-
-    if boost_channel is not None:
-        await boost_channel.send(embed=embed)
-        
-        
-        
-
-    
 
 client.run(TOKEN)
 
