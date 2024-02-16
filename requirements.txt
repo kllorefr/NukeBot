@@ -1,6 +1,3 @@
-discord
 discord.py
 requests
 asyncio
-colorama
-pyfiglet
